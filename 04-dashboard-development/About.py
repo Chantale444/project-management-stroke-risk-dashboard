@@ -1,0 +1,159 @@
+#About page
+import streamlit as st
+
+PAGE_ID = "about-page"
+st.markdown(f"<div id='{PAGE_ID}'>", unsafe_allow_html=True)
+st.markdown(f"""
+<style>
+#{PAGE_ID} .page-header-box {{ background-color:#0e2a47; padding:1.2rem; border-radius:10px; border:1px solid #ccc; margin-bottom:1.5rem; text-align:center; }}
+#{PAGE_ID} .page-header-text {{ font-size:2rem; font-weight:bold; color:#fff; line-height:1.2; margin:0; }}
+</style>
+""", unsafe_allow_html=True)
+
+
+
+from utils.ui_safety import begin_page
+begin_page("About")
+
+# Clearning up the unnecessaery data
+if 'rp_input' in st.session_state:
+    del st.session_state['rp_input']
+
+import seaborn as sns
+import re
+
+from forms.contact import contact_form
+
+
+#---define forms for contact---
+@st.dialog("Contact Us")
+def show_contact_form():
+    contact_form()
+
+st.markdown("""
+<style>
+.page-header-box {
+    background-color: #0e2a47;   /* dark blue background */
+    padding: 1.2rem;
+    border-radius: 10px;          /* rounded corners */
+    border: 1px solid #cccccc;   /* subtle border */
+    margin-bottom: 1.5rem;
+    text-align: center;          /* center the text */
+}
+
+.page-header-text {
+    font-size: 2rem;             /* bigger font size */
+    font-weight: bold;           /* bold text */
+    color: #ffffff;                /* white text color */
+    line-height: 1.2;            /* improve line height */
+    margin: 0;                   /* remove default margins */
+}
+</style>
+""", unsafe_allow_html=True)
+
+# About Page
+
+st.markdown(
+    '<div class="page-header-box"><div class="page-header-text">Welcome to NeuroInsight</div></div>',
+    unsafe_allow_html=True
+)
+    
+col1, col2 = st.columns([2, 1])
+    
+with col1:
+        st.image("./assets/logo_NeuroInsight.png", width=500)
+        st.markdown("""
+        ### Project Overview
+        
+        NeuroInsight is an advanced stroke risk prediction dashboard developed to assist 
+        healthcare professionals and individuals in assessing and understanding stroke risk factors.
+        
+        ### Technology Stack
+        - **Frontend:** Streamlit
+        - **Backend:** Python
+        - **ML Framework:** Scikit-learn
+        - **Visualization:** Plotly
+        - **Deployment:** Streamlit Cloud
+        
+         ### Dataset used
+        - **Dataset:** Kaggle Stroke Prediction Dataset
+        - **Key Variables:** 12 features including patient demograpics (age,gener), health conditions, work, residency and stroke
+        - **Link:** https://www.kaggle.com/datasets/fedesoriano/stroke-prediction-dataset      
+        
+        ### Model Information
+        - **Algorithm:** Support Vector Machine (SVM), Linear
+        - **Features:** 10 risk factors
+        - **Training Data:** 5,000 patient records
+        - **Evaluation Matrix:** Reacll: 0.71, f1-score: 0.58, ROC-AUC: 0.76
+        - **Cross-validation:** 5-fold
+        
+        ### Key Features
+        - Real-time risk prediction
+        - Interactive data visualization
+        - What-if scenario analysis
+        - Prevention recommendations
+        - Comprehensive risk factor analysis
+        
+        ### Data Privacy
+        All patient data entered into this dashboard is processed locally and is not stored 
+        or transmitted to any external servers. We prioritize patient privacy and data security.
+        """)
+    
+with col2:
+        st.markdown(
+            """
+            ### Team Members
+            - Data Scientists  
+            - Healthcare Professionals  
+            - Software Engineers  
+            - UX/UI Designers  
+
+            ### Contact
+            - 📧 **Email:** info@neuroinsight.com  
+            - 🌐 **Website:** www.neuroinsight.com  
+            - 📞 **Phone:** +1-800-555-1234  
+
+            ### Version
+            **Current Version:** 1.0.1  
+            **Last Updated:** 2025  
+            """,
+            unsafe_allow_html=True,
+        )
+
+# --- Styled Disclaimer (separate for formatting control) ---
+        st.markdown(
+            """
+            <div style="
+                color:#b30000;
+                font-size:17px;
+                font-weight:600;
+                margin-top:20px;
+                margin-bottom:25px;">
+                <h4 style="margin-bottom:5px;">Disclaimer</h4>
+                This tool is for <b>educational and screening purposes only</b>.  
+                It should not replace professional medical advice, diagnosis, or treatment.
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
+        if st.button('✉️Contact us'):
+            show_contact_form() 
+        
+st.info("""
+    ### Future Enhancements
+    - Integration with Electronic Health Records (EHR)
+    - Mobile application development
+    - Multi-language support
+    - Advanced deep learning models
+    - Real-time monitoring capabilities
+    """)
+
+# Footer
+st.markdown("---")
+st.markdown("""
+<div style='text-align: center; color: #888;'>
+    © 2025 NeuroInsight - Group 6 Dashboard | Stroke Risk Prediction System
+</div>
+""", unsafe_allow_html=True)
+
+st.markdown("<div style='height:100vh;background-color:white;'></div>", unsafe_allow_html=True)
