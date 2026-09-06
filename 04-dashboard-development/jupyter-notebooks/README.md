@@ -1,41 +1,88 @@
-# Assignment 4 — Dashboard Development
+# Jupyter Notebooks — Dashboard Development
 
-This assignment focused on developing a web-based dashboard for clinical decision support using a public stroke dataset.
+This folder contains the Jupyter notebooks used for the data science and machine learning development of the Stroke Risk Prediction Dashboard.
 
-The project combined data science, machine learning, explainability and user-centred dashboard design.
+The notebooks were used to explore the dataset, perform statistical analysis, develop predictive models and investigate model explanations before integrating the results into the Streamlit dashboard.
 
-## Dashboard Components
+## Notebooks
 
-The dashboard was structured around five main areas:
+### 01 — Descriptive Statistics
 
-- Descriptive Analytics
-- Diagnostic Analytics
-- Predictive Analytics
-- Prescriptive Analytics
-- About
+`01_descriptive_statistics.ipynb`
 
-## Data Science Pipeline
+This notebook explores the processed stroke dataset using descriptive statistics and visualizations.
 
-The Jupyter notebook documented the data science workflow, including:
+The analysis includes:
 
-- Dataset and variable analysis
-- Data preprocessing
+- Dataset exploration
+- Patient characteristics
+- Age distribution
+- Stroke prevalence
+- Heart disease and hypertension
+- Smoking status
+- Work and residence types
+- Glucose and BMI
 - Descriptive questions and visualizations
-- Diagnostic analysis
-- Clustering
-- Classification modelling
-- Model evaluation using accuracy, precision, recall and F1-score
+
+The notebook was used to identify patterns and generate analytical results for the Descriptive Analytics component of the dashboard.
+
+### 02 — Predictive Statistics
+
+`02_predictive_statistics.ipynb`
+
+This notebook focuses on the predictive modelling of stroke risk.
+
+The analysis includes:
+
+- Dataset preparation
+- Selection of input features
+- Definition of the stroke target variable
+- Machine learning classification
+- Comparison of predictive models
+- Model evaluation
+- Accuracy, precision, recall and F1-score
 - Training and prediction time
+- Selection of the final predictive model
+
+The results were used to support the Predictive Analytics component of the dashboard.
+
+### 03 — Diagnostic Analysis and Explainability
+
+`03_diagnostic_and_explainability.ipynb`
+
+This notebook contains diagnostic analysis and model explainability.
+
+The analysis includes:
+
+- Dataset preparation
+- Relationships between variables
+- Diagnostic analysis
+- Correlation analysis
+- Machine learning analysis
 - SHAP-based model explanations
 
-## Clinical Decision Support
+SHAP was used to understand which input features contributed to individual stroke-risk predictions and to support the Prescriptive Analytics component of the dashboard.
 
-The dashboard was designed for hypothetical healthcare users and aimed to support the exploration of stroke risk factors and prediction results.
+## Processed Dataset
 
-The predictive component allowed users to enter patient characteristics and obtain a predicted stroke-risk result. The prescriptive component provided explanations of the prediction using SHAP.
+`processed_data.csv`
 
-## Development
+This file contains the processed version of the stroke dataset used during the analysis and dashboard development.
 
-The dashboard was developed collaboratively by the project group. The development process included prototyping, iterative improvement and user testing.
+## Tools
 
-The project used Python, Jupyter Notebook, Streamlit and GitHub.
+The notebooks were developed using:
+
+- Python
+- Pandas
+- NumPy
+- Matplotlib
+- Seaborn
+- Plotly
+- Scikit-learn
+- SHAP
+- Jupyter Notebook
+
+## Purpose
+
+The notebooks provided the analytical and machine learning foundation for the Stroke Risk Prediction Dashboard. The results were subsequently integrated into the Streamlit application.
